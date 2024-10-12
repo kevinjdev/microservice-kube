@@ -1,0 +1,45 @@
+### API Testing using Rest Client Extension.
+@port = 8080
+GET http://localhost:{{port}}/api/products
+
+###
+
+GET http://localhost:{{port}}/api/products/2
+
+###
+
+POST http://localhost:{{port}}/api/products
+content-type: application/json
+
+{
+    "id": 7,
+    "name": "Product G",
+    "price": "$7.99"
+}
+
+###
+
+PUT http://localhost:{{port}}/api/products/3
+content-type: application/json
+
+{
+    "id": 3,
+    "name": "Product C",
+    "price": "$33.99"
+}
+
+###
+
+GET http://localhost:{{port}}/api/products/3
+
+###
+
+DELETE http://localhost:{{port}}/api/products/3
+
+###
+
+GET http://localhost:{{port}}/api/products/3
+
+###
+
+GET http://localhost:{{port}}/api/products
