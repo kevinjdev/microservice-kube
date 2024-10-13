@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: 'us-east-2'
   IMAGE_REPO: 'product-service'
-  DOCKERFILE: 'ProductService/Dockerfile'
+  DOCKERFILE_PATH: './ProductService/Dockerfile'
 
 jobs:
   build-and-push:
@@ -36,5 +36,5 @@ jobs:
           REPOSITORY: ${{env.IMAGE_REPO}}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG ./${{env.DOCKERFILE}}
+          docker build --tag $REGISTRY/$REPOSITORY:$IMAGE_TAG --file ${{env.DOCKERFILE_PATH}}
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
